@@ -1,0 +1,306 @@
+{
+  "Aljunied GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "WP": ["Pritam Singh", "Sylvia Lim", "Gerald Giam", "Fadli Fawzi", "Kenneth Tiong"],
+      "PAP": ["Chan Hui Yuh", "Faisal Abdul Aziz", "Daniel Liu", "Jagathishwaran Rajo", "Adrian Ang"]
+    },
+    "number_of_electors": 144032,
+    "seats_contested": 5
+  },
+  "Ang Mo Kio GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["Lee Hsien Loong", "Darryl David", "Nadia Ahmad Samdin", "Victor Lye", "Jasmin Lau"],
+      "PPP": ["William Lim", "Martinn Ho", "Heng Zheng Dao", "Samuel Lee", "Thaddeus Thomas"],
+      "SUP": ["Andy Zhu", "Noraini Yunus", "Vincent Ng", "Ridhuan Chandran", "Nigel Ng"]
+    },
+    "number_of_electors": 161235,
+    "seats_contested": 5
+  },
+  "Bishan-Toa Payoh GRC": {
+    "type": "4-member GRC",
+    "parties": {
+      "PAP": ["Chee Hong Tat", "Saktiandi Supaat", "Elysa Chen", "Cai Yinzhou"],
+      "SPP": ["Steve Chia", "Melvyn Chiu", "Muhammad Norhakim", "Lim Rui Xian"]
+    },
+    "number_of_electors": 98505,
+    "seats_contested": 4
+  },
+  "Bukit Gombak SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Low Yen Ling"],
+      "PSP": ["Harish Pillay"]
+    },
+    "number_of_electors": 26364,
+    "seats_contested": 1
+  },
+  "Bukit Panjang SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Liang Eng Hwa"],
+      "SDP": ["Paul Tambyah"]
+    },
+    "number_of_electors": 33566,
+    "seats_contested": 1
+  },
+  "Chua Chu Kang GRC": {
+    "type": "4-member GRC",
+    "parties": {
+      "PAP": ["Tan See Leng", "Zhulkarnain Abdul Rahim", "Jeffrey Siow", "Choo Pei Ling"],
+      "PSP": ["Wendy Low", "A'bas Kasmani", "S. Nallakaruppan", "Lawrence Pek"]
+    },
+    "number_of_electors": 93368,
+    "seats_contested": 4
+  },
+  "East Coast GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["Edwin Tong", "Tan Kiat How", "Jessica Tan", "Dinesh Vasu Dash", "Hazlina Abdul Halim"],
+      "WP": ["Yee Jenn Jong", "Nathaniel Koh", "Paris V. Parameswari", "Sufyan Mikhail Putra", "Jasper Kuan"]
+    },
+    "number_of_electors": 150691,
+    "seats_contested": 5
+  },
+  "Holland-Bukit Timah GRC": {
+    "type": "4-member GRC",
+    "parties": {
+      "PAP": ["Vivian Balakrishnan", "Sim Ann", "Christopher de Souza", "Edward Chia"],
+      "RDU": ["Fazli Talip", "Emily Woo", "Sharad Kumar", "Nizar Subair"]
+    },
+    "number_of_electors": 122891,
+    "seats_contested": 4
+  },
+  "Hougang SMC": {
+    "type": "SMC",
+    "parties": {
+      "WP": ["Dennis Tan"],
+      "PAP": ["Marshall Lim"]
+    },
+    "number_of_electors": 29433,
+    "seats_contested": 1
+  },
+  "Jalan Besar GRC": {
+    "type": "4-member GRC",
+    "parties": {
+      "PAP": ["Josephine Teo", "Denise Phua", "Wan Rizal Wan Zakariah", "Shawn Loh"],
+      "PAR": ["Mohamad Hamim Aliyas", "Vigneswari V. Ramachandran", "Sarina Abu Hassan", "Chiu Shin Kong"]
+    },
+    "number_of_electors": 106102,
+    "seats_contested": 4
+  },
+  "Jalan Kayu SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Ng Chee Meng"],
+      "WP": ["Andre Low"]
+    },
+    "number_of_electors": 29565,
+    "seats_contested": 1
+  },
+  "Jurong Central SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Xie Yao Quan"],
+      "RDU": ["Kala Manickam"]
+    },
+    "number_of_electors": 29620,
+    "seats_contested": 1
+  },
+  "Jurong East-Bukit Batok GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["Grace Fu", "Murali Pillai", "Rahayu Mahzam", "Lee Hong Chuang", "David Hoe"],
+      "RDU": ["Osman Sulaiman", "Liyana Dhamirah", "Ben Puah", "Marcus Neo", "Harish Mohanadas"]
+    },
+    "number_of_electors": 142510,
+    "seats_contested": 5
+  },
+  "Kebun Baru SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Henry Kwek"],
+      "PSP": ["Tony Tan"]
+    },
+    "number_of_electors": 22223,
+    "seats_contested": 1
+  },
+  "Marine Parade-Braddell Heights GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["Seah Kian Peng", "Muhammad Faishal Ibrahim", "Tin Pei Ling", "Diana Pang", "Goh Pei Ming"]
+    },
+    "notes": "Walkover",
+    "number_of_electors": 131493,
+    "seats_contested": 5
+  },
+  "Marsiling-Yew Tee GRC": {
+    "type": "4-member GRC",
+    "parties": {
+      "PAP": ["Lawrence Wong", "Zaqy Mohamad", "Alex Yam", "Hany Soh"],
+      "SDP": ["Alec Tok", "Gigene Wong", "Jufri Salim", "Ariffin Sha"]
+    },
+    "number_of_electors": 119352,
+    "seats_contested": 4
+  },
+  "Marymount SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Gan Siow Huang"],
+      "PSP": ["Jeffrey Khoo"]
+    },
+    "number_of_electors": 23219,
+    "seats_contested": 1
+  },
+  "Mountbatten SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Gho Sze Kee"],
+      "IND": ["Jeremy Tan"]
+    },
+    "number_of_electors": 22754,
+    "seats_contested": 1
+  },
+  "Nee Soon GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["K. Shanmugam", "Jackson Lam", "Goh Hanyan", "Lee Hui Ying", "Syed Harun Alhabsyi"],
+      "RDU": ["Ravi Philemon", "David Foo", "Sharon Lin", "Syed Alwi Ahmad", "Pang Heng Chuan"]
+    },
+    "number_of_electors": 151634,
+    "seats_contested": 5
+  },
+  "Pasir Ris-Changi GRC": {
+    "type": "4-member GRC",
+    "parties": {
+      "PAP": ["Indranee Rajah", "Desmond Tan", "Sharael Taha", "Valerie Lee"],
+      "SDA": ["Desmond Lim", "Abu Mohamed", "Harminder Pal Singh", "Chia Yun Kai"]
+    },
+    "number_of_electors": 100639,
+    "seats_contested": 4
+  },
+  "Pioneer SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Patrick Tay"],
+      "PSP": ["Stephanie Tan"]
+    },
+    "number_of_electors": 25166,
+    "seats_contested": 1
+  },
+  "Potong Pasir SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Alex Yeo"],
+      "SPP": ["Williiamson Lee"],
+      "PAR": ["Lim Tean"]
+    },
+    "number_of_electors": 30897,
+    "seats_contested": 1
+  },
+  "Punggol GRC": {
+    "type": "4-member GRC",
+    "parties": {
+      "PAP": ["Gan Kim Yong", "Janil Puthucheary", "Sun Xueling", "Yeo Wan Ling"],
+      "WP": ["Harpreet Singh", "Jackson Au", "Alia Mattar", "Alexis Dang"]
+    },
+    "notes": "New constituency",
+    "number_of_electors": 123557,
+    "seats_contested": 4
+  },
+  "Queenstown SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Eric Chua"],
+      "PAR": ["Mahaboob Batcha"]
+    },
+    "number_of_electors": 28857,
+    "seats_contested": 1
+  },
+  "Radin Mas SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Melvin Yong"],
+      "PAR": ["Kumar Appavoo"],
+      "IND": ["Darryl Lo"]
+    },
+    "number_of_electors": 25497,
+    "seats_contested": 1
+  },
+  "Sembawang GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["Ong Ye Kung", "Vikram Nair", "Mariam Jaafar", "Gabriel Lam", "Ng Shi Xuan"],
+      "NSP": ["Spencer Ng", "Yadzeth Hairis", "Raiyian Chia", "Verina Ong", "Lee Wei"],
+      "SDP": ["James Gomez", "Bryan Lim", "Alfred Tan", "Damanhuri Abas", "Surayah Akbar"]
+    },
+    "number_of_electors": 133919,
+    "seats_contested": 5
+  },
+  "Sembawang West SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Poh Li San"],
+      "SDP": ["Chee Soon Juan"]
+    },
+    "number_of_electors": 24153,
+    "seats_contested": 1
+  },
+  "Sengkang GRC": {
+    "type": "4-member GRC",
+    "parties": {
+      "WP": ["He Ting Ru", "Jamus Lim", "Louis Chua", "Abdul Muhaimin Abdul Malik"],
+      "PAP": ["Lam Pin Min", "Theodora Lai", "Elmie Nekmat", "Bernadette Giam"]
+    },
+    "number_of_electors": 126641,
+    "seats_contested": 4
+  },
+  "Tampines GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["Masagos Zulkifli", "Koh Poh Koon", "Baey Yam Keng", "Charlene Chen", "David Neo"],
+      "WP": ["Faisal Manap", "Jimmy Tan", "Michael Thng", "Ong Lue Ping", "Eileen Chong"],
+      "PPP": ["Goh Meng Seng", "Peter Soh", "Vere Nathan", "Arbaah Haroun", "Derrick Sim"],
+      "NSP": ["Reno Fong", "Mohd Ridzwan Mohammad", "Eugene Yeo", "Zee Phay", "Thamilselvan Karuppaya"]
+    },
+    "number_of_electors": 147904,
+    "seats_contested": 5
+  },
+  "Tampines Changkat SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Desmond Choo"],
+      "WP": ["Kenneth Foo"]
+    },
+    "number_of_electors": 23802,
+    "seats_contested": 1
+  },
+  "Tanjong Pagar GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["Chan Chun Sing", "Alvin Tan", "Joan Pereira", "Rachel Ong", "Foo Cexiang"],
+      "PAR": ["Prabu Ramachandran", "Han Hui Hui", "Nadarajan Selvamani", "Rickson Giauw", "Soh Lian Chye"]
+    },
+    "number_of_electors": 139688,
+    "seats_contested": 5
+  },
+  "West Coast-Jurong West GRC": {
+    "type": "5-member GRC",
+    "parties": {
+      "PAP": ["Desmond Lee", "Shawn Huang", "Ang Wei Neng", "Hamid Razak", "Cassandra Lee"],
+      "PSP": ["Leong Mun Wai", "Tan Cheng Bock", "Hazel Poa", "Sani Ismail", "Sumarleki Amjah"]
+    },
+    "number_of_electors": 117177,
+    "seats_contested": 5
+  },
+  "Yio Chu Kang SMC": {
+    "type": "SMC",
+    "parties": {
+      "PAP": ["Yip Hon Weng"],
+      "PAR": ["Michael Fang"]
+    },
+    "number_of_electors": 25368,
+    "seats_contested": 1
+  }
+}

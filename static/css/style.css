@@ -1,0 +1,317 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.map-container {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+.controls {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.results {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#constituency-info, #vote-controls, #parliament-composition, #vote-summary {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.party-control {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.party-control label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.party-control input[type="range"] {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.party-seat {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.party-seat .color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+/* Party colors */
+.pap { background-color: #FF0000; }
+.wp { background-color: #0000FF; }
+.psp { background-color: #FFA500; }
+.sdp { background-color: #800080; }
+.spp { background-color: #008000; }
+.nsp { background-color: #FFC0CB; }
+.ind { background-color: #808080; }
+.rdu { background-color: #FFD700; }
+.par { background-color: #00FFFF; }
+.ppp { background-color: #FF00FF; }
+.sda { background-color: #A52A2A; }
+.sup { background-color: #000080; }
+
+/* Vote Counter Styles */
+#vote-counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+}
+
+#vote-counter h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.party-vote-counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    background: #f5f5f5;
+    border-radius: 4px;
+}
+
+.party-vote-counter .party-name {
+    font-weight: bold;
+}
+
+.party-vote-counter .vote-percentage {
+    color: #666;
+}
+
+/* Update existing styles */
+.total-votes {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.vote-percentages {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.vote-percentages .party-seat {
+    margin: 5px 0;
+    padding: 8px;
+    background: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.vote-percentages .party-seat .color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.vote-percentages .party-seat span {
+    font-weight: bold;
+    color: #333;
+}
+
+.vote-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.vote-inputs input[type="range"] {
+    flex: 1;
+}
+
+.vote-inputs input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Parliament Seats Visualization */
+#parliament-seats {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+#parliament-seats h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+}
+
+.seats-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.seat {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+}
+
+.seat.empty {
+    background-color: #f0f0f0;
+}
+
+/* Party colors for seats */
+.seat.pap { background-color: #FF0000; }
+.seat.wp { background-color: #0000FF; }
+.seat.psp { background-color: #FFA500; }
+.seat.sdp { background-color: #800080; }
+.seat.spp { background-color: #008000; }
+.seat.nsp { background-color: #FFC0CB; }
+.seat.ind { background-color: #808080; }
+.seat.rdu { background-color: #FFD700; }
+.seat.par { background-color: #00FFFF; }
+.seat.ppp { background-color: #FF00FF; }
+.seat.sda { background-color: #A52A2A; }
+.seat.sup { background-color: #000080; }
+
+/* Summary Table Styles */
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-table th,
+.summary-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #333;
+}
+
+.summary-table tr:last-child td {
+    border-bottom: none;
+}
+
+.summary-table .party-seat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.summary-table .color-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.summary-table .total-row {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.summary-table .total-row:last-child {
+    background-color: #f0f0f0;
+    font-size: 1.1em;
+}
+
+#summary-table {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#summary-table h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 1.2em;
+} 

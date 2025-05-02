@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GE2025 Election Simulator</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        <div class="controls">
+            <div id="constituency-info">
+                <h3>Constituency Information</h3>
+                <div id="constituency-details"></div>
+            </div>
+            <div id="vote-controls">
+                <h3>Vote Distribution</h3>
+                <div id="party-votes"></div>
+            </div>
+        </div>
+        <div class="results">
+            <div id="parliament-composition">
+                <h3>Parliament Composition</h3>
+                <div id="party-seats" class="party-seats"></div>
+            </div>
+            <div id="vote-summary">
+                <h3>Total Votes</h3>
+                <div id="total-votes" class="total-votes"></div>
+            </div>
+            <div id="parliament-seats"></div>
+            <div id="summary-table"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
