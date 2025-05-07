@@ -1,19 +1,12 @@
-// Initialize the map
-const map = L.map('map').setView([1.3521, 103.8198], 11);
+'use strict';
 
-// Add the base map
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+// Constants for configuration
+const MAP_CONFIG = {
+    center: [1.3521, 103.8198],
+    zoom: 11
+};
 
-// Store election data and results
-let electionData = {};
-let electionResults = {};
-let currentConstituency = null;
-let geoJsonLayer = null;
-
-// Party colors
-const partyColors = {
+const PARTY_COLORS = {
     'PAP': '#d7445b',
     'WP': '#489ed5',
     'PSP': '#953932',
@@ -28,23 +21,35 @@ const partyColors = {
     'SUP': '#000080'
 };
 
+// Initialize the map
+const map = L.map('map').setView([1.3521, 103.8198], 11);
+
+// Add the base map
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// Store election data and results
+let electionData = {};
+let electionResults = {};
+let currentConstituency = null;
+let geoJsonLayer = null;
+
 // Function to normalize constituency names for matching
-function normalizeConstituencyName(name) {
+const normalizeConstituencyName = (name) => {
     return name.toLowerCase().replace(/-/g, ' ').trim();
-}
+};
 
 // Function to format constituency names for display
-function formatConstituencyName(name) {
+const formatConstituencyName = (name) => {
     return name.split(' ')
         .map(word => {
-            if (word === 'GRC' || word === 'SMC') {
-                return word;
-            }
+            if (word === 'GRC' || word === 'SMC') return word;
             return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
         })
         .join(' ')
         .replace(/\s+/g, ' ');
-}
+};
 
 // Debug function to check data loading
 function debugDataLoading() {
@@ -140,7 +145,7 @@ function loadGeoJSON() {
                     // Set color based on walkover status
                     if (info && info.notes && info.notes.toLowerCase().includes('walkover')) {
                         return {
-                            fillColor: partyColors['PAP'],
+                            fillColor: PARTY_COLORS['PAP'],
                             weight: 2,
                             opacity: 1,
                             color: 'white',
@@ -259,7 +264,7 @@ function showVoteControls(constituencyName, displayName) {
         
         // Create vote controls for each party
         parties.forEach(([party, candidates]) => {
-            const currentVotes = electionResults[constituencyName]?.[party] || 0;
+            const currentVotes = electionResults[constituencyName]?.[party] ?? 0;
             
             html += `
                 <div class="party-control">
@@ -382,7 +387,7 @@ function updateMapColor(constituencyName) {
         geoJsonLayer.eachLayer(function(layer) {
             if (normalizeConstituencyName(layer.feature.properties.ED_DESC_FU) === constituencyName) {
                 layer.setStyle({
-                    fillColor: partyColors[winningParty] || '#808080'
+                    fillColor: PARTY_COLORS[winningParty] || '#808080'
                 });
             }
         });
@@ -553,4 +558,164 @@ function updateParliamentSeats() {
 window.addEventListener('load', function() {
     console.log('Page loaded, running debug checks...');
     debugDataLoading();
+});
+
+function validateVotePercentage(constituencyName, party, percentage) {
+    if (isNaN(percentage) || percentage < 0 || percentage > 100) {
+        console.error('Invalid vote percentage');
+        return false;
+    }
+    
+    const totalVotes = Object.values(this.electionResults[constituencyName] || {})
+        .reduce((sum, votes) => sum + votes, 0);
+    
+    if (totalVotes + percentage > 100) {
+        console.error('Total votes cannot exceed 100%');
+        return false;
+    }
+    
+    return true;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const simulator = new ElectionSimulator();
+    
+    // Use event delegation for map interactions
+    document.getElementById('map').addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.matches('.constituency')) {
+            simulator.handleConstituencyClick(target.dataset.constituency);
+        }
+    });
+});
+
+class ElectionError extends Error {
+    constructor(message, code) {
+        super(message);
+        this.name = 'ElectionError';
+        this.code = code;
+    }
+}
+
+function handleError(error) {
+    console.error('Error:', error);
+    if (error instanceof ElectionError) {
+        // Handle specific election errors
+        showErrorMessage(error.message);
+    } else {
+        // Handle general errors
+        showErrorMessage('An unexpected error occurred');
+    }
+}
+
+class ElectionSimulator {
+    constructor() {
+        this.electionData = {};
+        this.electionResults = {};
+        this.currentConstituency = null;
+        this.geoJsonLayer = null;
+        this.map = null;
+        
+        this.initializeMap();
+        this.loadData();
+        this.setupEventListeners();
+    }
+
+    initializeMap() {
+        try {
+            this.map = L.map('map').setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(this.map);
+        } catch (error) {
+            this.handleError(new ElectionError('Failed to initialize map', 'MAP_INIT_ERROR'));
+        }
+    }
+
+    async loadData() {
+        try {
+            const [candidatesData, geoJsonData] = await Promise.all([
+                this.fetchCandidatesData(),
+                this.fetchGeoJSONData()
+            ]);
+            
+            this.electionData = this.normalizeElectionData(candidatesData);
+            this.initializeElectionResults();
+            await this.loadGeoJSON(geoJsonData);
+            this.updateParliamentSeats();
+        } catch (error) {
+            this.handleError(new ElectionError('Failed to load election data', 'DATA_LOAD_ERROR'));
+        }
+    }
+
+    setupEventListeners() {
+        // Use event delegation for map interactions
+        this.map.on('click', (event) => {
+            const target = event.target;
+            if (target.matches('.constituency')) {
+                this.handleConstituencyClick(target.dataset.constituency);
+            }
+        });
+
+        // Add cleanup on page unload
+        window.addEventListener('unload', () => {
+            this.cleanup();
+        });
+    }
+
+    cleanup() {
+        // Remove event listeners
+        this.map.off();
+        // Clear data
+        this.electionData = {};
+        this.electionResults = {};
+        this.currentConstituency = null;
+        this.geoJsonLayer = null;
+    }
+
+    validateVotePercentage(constituencyName, party, percentage) {
+        if (isNaN(percentage) || percentage < 0 || percentage > 100) {
+            throw new ElectionError('Invalid vote percentage', 'INVALID_VOTE');
+        }
+        
+        const totalVotes = Object.values(this.electionResults[constituencyName] || {})
+            .reduce((sum, votes) => sum + votes, 0);
+        
+        if (totalVotes + percentage > 100) {
+            throw new ElectionError('Total votes cannot exceed 100%', 'VOTE_LIMIT_EXCEEDED');
+        }
+        
+        return true;
+    }
+
+    updateVotes(constituencyName, party, percentage) {
+        try {
+            const newPercentage = parseInt(percentage);
+            this.validateVotePercentage(constituencyName, party, newPercentage);
+
+            this.updateElectionResults(constituencyName, party, newPercentage);
+            this.updateUI(constituencyName);
+            this.updateMapColor(constituencyName);
+            this.updateResults();
+            this.updateParliamentSeats();
+        } catch (error) {
+            this.handleError(error);
+        }
+    }
+
+    handleError(error) {
+        console.error('Error:', error);
+        if (error instanceof ElectionError) {
+            this.showErrorMessage(error.message);
+        } else {
+            this.showErrorMessage('An unexpected error occurred');
+        }
+    }
+
+    // ... other methods
+}
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', () => {
+    const simulator = new ElectionSimulator();
 }); 
