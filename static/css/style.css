@@ -1,75 +1,126 @@
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+:root {
+    /* Color Variables */
+    --color-primary: #333;
+    --color-secondary: #666;
+    --color-background: #f5f5f5;
+    --color-white: #ffffff;
+    --color-border: #eee;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    
+    /* Spacing Variables */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px var(--color-shadow);
+}
+
+/* Reset and Base Styles */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    line-height: 1.5;
 }
 
+/* ==========================================================================
+   Layout
+   ========================================================================== */
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
-    gap: 20px;
-    padding: 20px;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* ==========================================================================
+   Components
+   ========================================================================== */
+/* Map Container */
 .map-container {
     grid-column: 1;
     grid-row: 1 / span 2;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
 #map {
     height: 600px;
     width: 100%;
-    border-radius: 4px;
+    border-radius: var(--border-radius-sm);
 }
 
+/* Controls Section */
 .controls {
     grid-column: 2;
     grid-row: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--spacing-lg);
 }
 
+/* Results Section */
 .results {
     grid-column: 2;
     grid-row: 2;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--spacing-lg);
 }
 
-#constituency-info, #vote-controls, #parliament-composition, #vote-summary {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* ==========================================================================
+   Cards and Containers
+   ========================================================================== */
+.info-card,
+.results-card {
+    background: var(--color-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3 {
+    margin-top: 0;
+    color: var(--color-primary);
 }
 
 h3 {
-    margin-top: 0;
-    color: #333;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: var(--spacing-sm);
 }
 
+/* ==========================================================================
+   Party Controls
+   ========================================================================== */
 .party-control {
-    margin: 10px 0;
-    padding: 10px;
-    background: #f9f9f9;
-    border-radius: 4px;
+    margin: var(--spacing-sm) 0;
+    padding: var(--spacing-sm);
+    background: var(--color-background);
+    border-radius: var(--border-radius-sm);
 }
 
 .party-control label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: var(--spacing-xs);
     font-weight: bold;
 }
 
@@ -94,29 +145,48 @@ h3 {
     border-radius: 4px;
 }
 
-/* Party colors */
-.pap { background-color: #FF0000; }
-.wp { background-color: #0000FF; }
-.psp { background-color: #FFA500; }
-.sdp { background-color: #800080; }
-.spp { background-color: #008000; }
-.nsp { background-color: #FFC0CB; }
-.ind { background-color: #808080; }
-.rdu { background-color: #FFD700; }
-.par { background-color: #00FFFF; }
-.ppp { background-color: #FF00FF; }
-.sda { background-color: #A52A2A; }
-.sup { background-color: #000080; }
+/* ==========================================================================
+   Party Colors
+   ========================================================================== */
+:root {
+    --color-pap: #FF0000;
+    --color-wp: #0000FF;
+    --color-psp: #FFA500;
+    --color-sdp: #800080;
+    --color-spp: #008000;
+    --color-nsp: #FFC0CB;
+    --color-ind: #808080;
+    --color-rdu: #FFD700;
+    --color-par: #00FFFF;
+    --color-ppp: #FF00FF;
+    --color-sda: #A52A2A;
+    --color-sup: #000080;
+}
 
-/* Vote Counter Styles */
+.pap { background-color: var(--color-pap); }
+.wp { background-color: var(--color-wp); }
+.psp { background-color: var(--color-psp); }
+.sdp { background-color: var(--color-sdp); }
+.spp { background-color: var(--color-spp); }
+.nsp { background-color: var(--color-nsp); }
+.ind { background-color: var(--color-ind); }
+.rdu { background-color: var(--color-rdu); }
+.par { background-color: var(--color-par); }
+.ppp { background-color: var(--color-ppp); }
+.sda { background-color: var(--color-sda); }
+.sup { background-color: var(--color-sup); }
+
+/* ==========================================================================
+   Vote Counter
+   ========================================================================== */
 #vote-counter {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
     max-width: 250px;
 }
 
@@ -184,8 +254,8 @@ h3 {
 .vote-inputs {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 5px 0;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-xs) 0;
 }
 
 .vote-inputs input[type="range"] {
@@ -194,86 +264,91 @@ h3 {
 
 .vote-inputs input[type="number"] {
     width: 60px;
-    padding: 5px;
+    padding: var(--spacing-xs);
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: var(--border-radius-sm);
     text-align: center;
 }
 
-/* Parliament Seats Visualization */
+/* ==========================================================================
+   Parliament Seats
+   ========================================================================== */
 #parliament-seats {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+    position: relative;
+    background: var(--color-white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin-top: var(--spacing-lg);
 }
 
 #parliament-seats h3 {
-    margin: 0 0 10px 0;
-    font-size: 16px;
-    color: #333;
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1.2em;
+    color: var(--color-primary);
     text-align: center;
 }
 
 .seats-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    gap: 5px;
-    margin-top: 10px;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--color-background);
+    border-radius: var(--border-radius-sm);
 }
 
 .seat {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-border);
     margin: 0 auto;
 }
 
 .seat.empty {
-    background-color: #f0f0f0;
+    background-color: var(--color-background);
 }
 
 /* Party colors for seats */
-.seat.pap { background-color: #FF0000; }
-.seat.wp { background-color: #0000FF; }
-.seat.psp { background-color: #FFA500; }
-.seat.sdp { background-color: #800080; }
-.seat.spp { background-color: #008000; }
-.seat.nsp { background-color: #FFC0CB; }
-.seat.ind { background-color: #808080; }
-.seat.rdu { background-color: #FFD700; }
-.seat.par { background-color: #00FFFF; }
-.seat.ppp { background-color: #FF00FF; }
-.seat.sda { background-color: #A52A2A; }
-.seat.sup { background-color: #000080; }
+.seat.pap { background-color: var(--color-pap); }
+.seat.wp { background-color: var(--color-wp); }
+.seat.psp { background-color: var(--color-psp); }
+.seat.sdp { background-color: var(--color-sdp); }
+.seat.spp { background-color: var(--color-spp); }
+.seat.nsp { background-color: var(--color-nsp); }
+.seat.ind { background-color: var(--color-ind); }
+.seat.rdu { background-color: var(--color-rdu); }
+.seat.par { background-color: var(--color-par); }
+.seat.ppp { background-color: var(--color-ppp); }
+.seat.sda { background-color: var(--color-sda); }
+.seat.sup { background-color: var(--color-sup); }
 
-/* Summary Table Styles */
+/* ==========================================================================
+   Summary Table
+   ========================================================================== */
 .summary-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-    border-radius: 8px;
+    margin-top: var(--spacing-lg);
+    background: var(--color-white);
+    border-radius: var(--border-radius-md);
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
 }
 
 .summary-table th,
 .summary-table td {
-    padding: 12px 15px;
+    padding: var(--spacing-sm) var(--spacing-md);
     text-align: left;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .summary-table th {
-    background-color: #f5f5f5;
+    background-color: var(--color-background);
     font-weight: bold;
-    color: #333;
+    color: var(--color-primary);
 }
 
 .summary-table tr:last-child td {
@@ -314,4 +389,34 @@ h3 {
     margin: 0 0 15px 0;
     color: #333;
     font-size: 1.2em;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-container {
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .controls {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .results {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    #vote-counter {
+        position: static;
+        max-width: 100%;
+        margin-top: var(--spacing-lg);
+    }
 } 
